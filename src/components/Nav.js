@@ -1,8 +1,17 @@
 import React from "react";
 import { Navbar, Badge } from "react-bootstrap";
-
+import { Animated } from "react-animated-css";
 const Nav = () => {
-  return <Navbar className="d-flex flex-wrap" style={navbar} />;
+  return (
+    <Navbar className="d-flex flex-wrap" style={navbar}>
+      <Animated
+        animationIn="slideInDown"
+        className="d-flex justify-content-between col-12"
+      >
+        ss
+      </Animated>
+    </Navbar>
+  );
 };
 
 const navbar = {

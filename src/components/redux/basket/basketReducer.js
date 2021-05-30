@@ -16,8 +16,16 @@ const basketlistReducer = (state = initOrder, action) => {
     case ADD_TO_BASKET:
       return {
         ...state,
-        numberOfUnits: state.numberOfUnits + action.bought,
+        numberOfUnits: state.numberOfUnits + 1,
         unitArray: state.unitArray.concat(action.payload),
+      };
+    case ADD_TO_BASKET_ITEM:
+      return {
+        ...state,
+        numberOfUnits: state.numberOfUnits + 1,
+        unitArray: state.unitArray.map((item) =>
+          item.SKU === action.payload.SKU ? action.payload : item
+        ),
       };
     default:
       return state;

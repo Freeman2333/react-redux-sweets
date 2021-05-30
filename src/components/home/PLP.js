@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import { decreaseProductStock } from "../redux/products/productlistAction";
 import PDP from "./PDP";
+import { addToBasket, addToBasketItem } from "./../redux/basket/basketAction";
 function PLP(props) {
   const item = props.product;
   const dispatch = useDispatch();
@@ -13,6 +14,10 @@ function PLP(props) {
   const handleDispatches = (item) => {
     if (item.stock !== 0) {
       dispatch(decreaseProductStock(item));
+
+      basketList.unitArray.includes(item)
+        ? dispatch(addToBasketItem(item))
+        : dispatch(addToBasket(item));
     }
   };
 

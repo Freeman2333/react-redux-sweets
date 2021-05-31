@@ -14,7 +14,6 @@ function PLP(props) {
   const handleDispatches = (item) => {
     if (item.stock !== 0) {
       dispatch(decreaseProductStock(item));
-
       basketList.unitArray.includes(item)
         ? dispatch(addToBasketItem(item))
         : dispatch(addToBasket(item));

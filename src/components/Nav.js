@@ -2,10 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Animated } from "react-animated-css";
 import { Navbar, Badge } from "react-bootstrap";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
-  // const stateBasket = useSelector((state) => state.basket);
+  const stateBasket = useSelector((state) => state.basket);
 
   return (
     <Navbar className="d-flex flex-wrap" style={navbar}>
@@ -39,7 +39,7 @@ const Navigation = () => {
               style={{ color: "darkcyan" }}
             ></i>
             <Badge pill variant="info">
-              {/* {stateBasket.numberOfUnits} */}
+              {stateBasket.numberOfUnits}
             </Badge>
           </NavLink>
         </div>

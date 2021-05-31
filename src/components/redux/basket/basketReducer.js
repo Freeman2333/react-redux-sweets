@@ -27,6 +27,11 @@ const basketlistReducer = (state = initOrder, action) => {
           item.SKU === action.payload.SKU ? action.payload : item
         ),
       };
+    case REMOVE_ROW:
+      return{
+        ...state,
+        unitArray: state.unitArray.filter(item=> item!== action.payload)
+      } 
     default:
       return state;
   }

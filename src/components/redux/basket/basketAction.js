@@ -18,3 +18,11 @@ export const addToBasketItem = (product) => {
     payload: product,
   };
 };
+
+export const removeRow = (product) => {
+  return {
+    type: REMOVE_ROW,
+    payload: product,
+  };
+};
+

@@ -11,6 +11,7 @@ const initOrder = {
   unitArray: [],
 };
 
+
 const basketlistReducer = (state = initOrder, action) => {
   switch (action.type) {
     case ADD_TO_BASKET:
@@ -28,9 +29,16 @@ const basketlistReducer = (state = initOrder, action) => {
         ),
       };
     case REMOVE_ROW:
+      let numberOfProducts;
+      state.unitArray.forEach(item=>{
+         if(item.SKU===action.payload.SKU){
+          numberOfProducts = item.purchasedUnits
+         }
+       })
       return{
         ...state,
-        unitArray: state.unitArray.filter(item=> item!== action.payload)
+        unitArray: state.unitArray.filter(item=> item!== action.payload),
+        numberOfUnits: state.numberOfUnits - numberOfProducts
       } 
     default:
       return state;

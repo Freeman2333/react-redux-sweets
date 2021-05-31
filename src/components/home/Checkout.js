@@ -9,6 +9,8 @@ function Checkout() {
     const stateBasket = completeOrder.unitArray;
     const browserBasket = JSON.parse(localStorage.getItem("Basket"))
     const emtyBasketText = "No items are in the basket yet ...";
+    console.log(stateBasket)
+    console.log(completeOrder.numberOfUnits)
     return (
         <Container>
             <Card className="text-center mt-4">
@@ -22,6 +24,7 @@ function Checkout() {
                                 Sum of items: {completeOrder.numberOfUnits}
                             </ListGroup.Item>
                             {stateBasket.map((p,i)=>{
+                                console.log(p)
                                 return <CheckoutItem key={i} data={p}/>
                             })}
                         </ListGroup>

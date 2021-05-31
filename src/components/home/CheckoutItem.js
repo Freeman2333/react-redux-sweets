@@ -2,12 +2,14 @@ import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { ListGroup, Button } from "react-bootstrap";
 import {removeRow} from '../redux/basket/basketAction'
+import {returnProduct} from '../redux/products/productlistAction'
 
 function CheckoutItem(props) {
     const product = props.data;
     const dispatch = useDispatch();
     const handleRemoveRow=()=>{
         dispatch(removeRow(product))
+        dispatch(returnProduct(product))
     }
     return (
         <>

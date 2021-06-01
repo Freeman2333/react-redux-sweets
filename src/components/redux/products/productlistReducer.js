@@ -1,4 +1,8 @@
-import { ADD_PRODUCT, DECREASE_PRODUCT_STOCK, RETURN_PRODUCT } from "./productlistType";
+import {
+  ADD_PRODUCT,
+  DECREASE_PRODUCT_STOCK,
+  RETURN_PRODUCT,
+} from "./productlistType";
 
 const initProduct = {
   numberOfProducts: 0,
@@ -27,16 +31,17 @@ const productlistReducer = (state = initProduct, action) => {
         }),
       };
     case RETURN_PRODUCT:
-      let updatedProductArray = state.productArray.map(product=>{
-        if(product===action.payload){
+      let updatedProductArray = state.productArray.map((product) => {
+        if (product === action.payload) {
           product.stock += action.payload.purchasedUnits;
+          product.purchasedUnits -= action.payload.purchasedUnits;
         }
-        return product
-      })
+        return product;
+      });
       return {
         ...state,
-        productArray: updatedProductArray
-      }
+        productArray: updatedProductArray,
+      };
     default:
       return state;
   }

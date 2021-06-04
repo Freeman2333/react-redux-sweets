@@ -11,8 +11,17 @@ const initOrder = {
   unitArray: [],
 };
 
+const getInitOrder = () => {
+  const basket = localStorage.getItem("basket");
+  if (basket) {
+    return JSON.parse(localStorage.getItem("basket"));
+  } else {
+    return initOrder;
+  }
+};
 
-const basketlistReducer = (state = initOrder, action) => {
+const initState = getInitOrder();
+const basketlistReducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_TO_BASKET:
       return {
@@ -30,12 +39,12 @@ const basketlistReducer = (state = initOrder, action) => {
       };
     case REMOVE_ROW:
       let numberOfProducts;
-      state.unitArray.forEach(item=>{
-         if(item.SKU===action.payload.SKU){
-          numberOfProducts = item.purchasedUnits
-         }
-       })
-      return{
+      state.unitArray.forEach((item) => {
+        if (item.SKU === action.payload.SKU) {
+          numberOfProducts = item.purchasedUnits;
+        }
+      });
+      return {
         ...state,
         unitArray: state.unitArray.filter(item=> item!== action.payload),
         numberOfUnits: state.numberOfUnits - numberOfProducts

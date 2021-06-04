@@ -27,12 +27,13 @@ const productlistReducer = (state = initProduct, action) => {
         }),
       };
     case RETURN_PRODUCT:
-      let updatedProductArray = state.productArray.map(product=>{
-        if(product===action.payload){
+      let updatedProductArray = state.productArray.map((product) => {
+        if (product === action.payload) {
           product.stock += action.payload.purchasedUnits;
+          product.purchasedUnits -= action.payload.purchasedUnits;
         }
-        return product
-      })
+        return product;
+      });
       return {
         ...state,
         productArray: updatedProductArray

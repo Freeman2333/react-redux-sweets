@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Card, ListGroup } from "react-bootstrap";
-import Alerts from '../Alert';
+import Alerts from "../Alert";
 import CheckoutItem from "./CheckoutItem";
 import ResetBtn from '../button/ResetBtn';
 function Checkout() {
@@ -35,13 +35,13 @@ function Checkout() {
 }
 
 const cardBody = {
-    minHeight: "500px"
-  };
-  
-  const listItem = {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "space-between"
-  };
+  minHeight: "500px",
+};
 
-export default Checkout
+const listItem = {
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "space-between",
+};
+
+export default Checkout;

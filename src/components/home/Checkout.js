@@ -3,14 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { Container, Card, ListGroup } from "react-bootstrap";
 import Alerts from '../Alert';
 import CheckoutItem from "./CheckoutItem";
+import ResetBtn from '../button/ResetBtn';
 function Checkout() {
     const dispatch = useDispatch();
     const completeOrder = useSelector(state=>state.basket)
     const stateBasket = completeOrder.unitArray;
-    const browserBasket = JSON.parse(localStorage.getItem("Basket"))
     const emtyBasketText = "No items are in the basket yet ...";
-    console.log(stateBasket)
-    console.log(completeOrder.numberOfUnits)
     return (
         <Container>
             <Card className="text-center mt-4">
@@ -27,6 +25,7 @@ function Checkout() {
                                 console.log(p)
                                 return <CheckoutItem key={i} data={p}/>
                             })}
+                            <ResetBtn/>
                         </ListGroup>
                     )}
                 </Card.Body>

@@ -26,3 +26,8 @@ export const removeRow = (product) => {
   };
 };
 
+export const resetBasket = ()=>{
+  return {
+    type: RESET_BASKET
+  }
+}

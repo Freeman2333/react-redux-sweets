@@ -9,7 +9,6 @@ function ResetButton() {
   const handelReset = () => {
     dispatch(resetBasket());
     dispatch(resetProducts());
-    localStorage.removeItem("Basket");
   };
 
   return (

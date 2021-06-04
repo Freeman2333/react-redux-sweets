@@ -20,9 +20,6 @@ function PLP(props) {
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem("Basket", JSON.stringify(basketList));
-  }, [basketList]);
   return (
     <Card id={item.SKU} className="text-center p-0 mt-4">
       <Card.Img

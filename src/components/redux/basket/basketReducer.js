@@ -40,6 +40,10 @@ const basketlistReducer = (state = initOrder, action) => {
         unitArray: state.unitArray.filter(item=> item!== action.payload),
         numberOfUnits: state.numberOfUnits - numberOfProducts
       } 
+    case RESET_BASKET:
+      return {
+        ...initOrder
+      }
     default:
       return state;
   }

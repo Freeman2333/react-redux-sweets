@@ -1,8 +1,8 @@
 import React from "react";
 import { Provider } from "react-redux";
-import store from "./redux/store";
+import {store, persistor} from "./redux/store";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import { PersistGate } from 'redux-persist/integration/react'
 import Navigation from "./components/Navigation";
 import About from "./components/About";
 import Contact from "./components/Contact";

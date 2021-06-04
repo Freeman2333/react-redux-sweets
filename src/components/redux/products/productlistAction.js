@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, DECREASE_PRODUCT_STOCK, RETURN_PRODUCT } from "./productlistType";
+import { ADD_PRODUCT, DECREASE_PRODUCT_STOCK, RETURN_PRODUCT,RESET_PRODUCTS } from "./productlistType";
 
 export const addProduct = (product) => {
   return {
@@ -21,3 +21,8 @@ export const returnProduct = (product) => {
   };
 };
 
+export const resetProducts = ()=>{
+  return {
+    type: RESET_PRODUCTS
+  }
+}
